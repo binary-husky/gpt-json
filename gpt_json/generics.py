@@ -27,7 +27,7 @@ def resolve_type(type_: Any, typevar_mapping: dict) -> Any:
         resolved_args = tuple(
             resolve_type(arg, typevar_mapping) for arg in get_args(type_)
         )
-        return get_origin(type_)[*resolved_args]
+        return get_origin(type_)(*resolved_args)
     else:
         return type_
 
